@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shuframework.admin.mapper.SysDeptMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.shuframework.admin.model.SysDept">
+		<id column="id" property="id" />
+		<result column="deptid" property="deptid" />
+		<result column="name" property="name" />
+		<result column="pid" property="pid" />
+		<result column="levels" property="levels" />
+		<result column="createtime" property="createtime" />
+		<result column="updatetime" property="updatetime" />
+		<result column="description" property="description" />
+		<result column="sortid" property="sortid" />
+		<result column="state" property="state" />
+		<result column="enable" property="enable" />
+		<result column="type" property="type" />
+	</resultMap>
+
+</mapper>
