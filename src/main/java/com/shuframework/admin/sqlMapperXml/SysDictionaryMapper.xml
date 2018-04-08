@@ -5,15 +5,15 @@
 	<!-- 通用查询映射结果 -->
 	<resultMap id="BaseResultMap" type="com.shuframework.admin.model.SysDictionary">
 		<id column="id" property="id" />
-		<result column="pid" property="pid" />
+		<result column="parent_id" property="parentId" />
 		<result column="type_code" property="typeCode" />
 		<result column="name" property="name" />
 		<result column="value" property="value" />
 		<result column="description" property="description" />
-		<result column="enable" property="enable" />
 		<result column="sortid" property="sortid" />
-		<result column="createtime" property="createtime" />
-		<result column="updatetime" property="updatetime" />
+		<result column="enable" property="enable" />
+		<result column="create_time" property="createTime" />
+		<result column="update_time" property="updateTime" />
 	</resultMap>
 
 </mapper>

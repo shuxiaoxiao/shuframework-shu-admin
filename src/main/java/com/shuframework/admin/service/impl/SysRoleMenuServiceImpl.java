@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 
 /**
  * <p>
- * 角色菜单_中间表 服务实现类
+ * 系统管理_角色菜单中间表 服务实现类
  * </p>
  *
  * @author shuheng
- * @since 2017-10-13
+ * @since 2018-03-31
  */
 @Service
 public class SysRoleMenuServiceImpl extends ServiceImpl<SysRoleMenuMapper, SysRoleMenu> implements SysRoleMenuService {

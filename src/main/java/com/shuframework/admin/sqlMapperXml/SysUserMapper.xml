@@ -14,12 +14,12 @@
 		<result column="phone_num2" property="phoneNum2" />
 		<result column="address" property="address" />
 		<result column="state" property="state" />
-		<result column="deptid" property="deptid" />
-		<result column="createtime" property="createtime" />
-		<result column="leavetime" property="leavetime" />
+		<result column="dept_id" property="deptId" />
+		<result column="create_time" property="createTime" />
+		<result column="leave_time" property="leaveTime" />
 		<result column="user_type" property="userType" />
 		<result column="sortid" property="sortid" />
-		<result column="updatetime" property="updatetime" />
+		<result column="update_time" property="updateTime" />
 	</resultMap>
 
 </mapper>

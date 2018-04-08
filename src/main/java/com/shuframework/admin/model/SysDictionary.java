@@ -12,11 +12,11 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 系统表_字典表
+ * 系统管理_字典表
  * </p>
  *
  * @author shuheng
- * @since 2017-10-13
+ * @since 2018-03-31
  */
 @TableName("sys_dictionary")
 public class SysDictionary extends Model<SysDictionary> {
@@ -28,7 +28,8 @@ public class SysDictionary extends Model<SysDictionary> {
     /**
      * 父编码
      */
-	private Long pid;
+	@TableField("parent_id")
+	private Long parentId;
     /**
      * 类型编码
      */
@@ -47,21 +48,23 @@ public class SysDictionary extends Model<SysDictionary> {
      */
 	private String description;
     /**
-     * 状态，0不可用 1可用
-     */
-	private String enable;
-    /**
      * 排序号
      */
 	private Integer sortid;
     /**
+     * 状态，0不可用 1可用
+     */
+	private Integer enable;
+    /**
      * 创建时间
      */
-	private Date createtime;
+	@TableField("create_time")
+	private Date createTime;
     /**
      * 更新时间
      */
-	private Date updatetime;
+	@TableField("update_time")
+	private Date updateTime;
 
 
 	public Long getId() {
@@ -72,12 +75,12 @@ public class SysDictionary extends Model<SysDictionary> {
 		this.id = id;
 	}
 
-	public Long getPid() {
-		return pid;
+	public Long getParentId() {
+		return parentId;
 	}
 
-	public void setPid(Long pid) {
-		this.pid = pid;
+	public void setParentId(Long parentId) {
+		this.parentId = parentId;
 	}
 
 	public String getTypeCode() {
@@ -112,14 +115,6 @@ public class SysDictionary extends Model<SysDictionary> {
 		this.description = description;
 	}
 
-	public String getEnable() {
-		return enable;
-	}
-
-	public void setEnable(String enable) {
-		this.enable = enable;
-	}
-
 	public Integer getSortid() {
 		return sortid;
 	}
@@ -128,20 +123,28 @@ public class SysDictionary extends Model<SysDictionary> {
 		this.sortid = sortid;
 	}
 
-	public Date getCreatetime() {
-		return createtime;
+	public Integer getEnable() {
+		return enable;
 	}
 
-	public void setCreatetime(Date createtime) {
-		this.createtime = createtime;
+	public void setEnable(Integer enable) {
+		this.enable = enable;
 	}
 
-	public Date getUpdatetime() {
-		return updatetime;
+	public Date getCreateTime() {
+		return createTime;
 	}
 
-	public void setUpdatetime(Date updatetime) {
-		this.updatetime = updatetime;
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 
 	@Override
@@ -153,15 +156,15 @@ public class SysDictionary extends Model<SysDictionary> {
 	public String toString() {
 		return "SysDictionary{" +
 			"id=" + id +
-			", pid=" + pid +
+			", parentId=" + parentId +
 			", typeCode=" + typeCode +
 			", name=" + name +
 			", value=" + value +
 			", description=" + description +
-			", enable=" + enable +
 			", sortid=" + sortid +
-			", createtime=" + createtime +
-			", updatetime=" + updatetime +
+			", enable=" + enable +
+			", createTime=" + createTime +
+			", updateTime=" + updateTime +
 			"}";
 	}
 }

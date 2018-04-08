@@ -12,11 +12,11 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 系统表_用户
+ * 系统管理_用户
  * </p>
  *
  * @author shuheng
- * @since 2017-10-13
+ * @since 2018-03-31
  */
 @TableName("sys_user")
 public class SysUser extends Model<SysUser> {
@@ -67,15 +67,18 @@ public class SysUser extends Model<SysUser> {
     /**
      * 部门id
      */
-	private String deptid;
+	@TableField("dept_id")
+	private String deptId;
     /**
      * 入职时间
      */
-	private Date createtime;
+	@TableField("create_time")
+	private Date createTime;
     /**
      * 离职时间
      */
-	private Date leavetime;
+	@TableField("leave_time")
+	private Date leaveTime;
     /**
      * 用户类型
      */
@@ -88,7 +91,8 @@ public class SysUser extends Model<SysUser> {
     /**
      * 更新时间
      */
-	private Date updatetime;
+	@TableField("update_time")
+	private Date updateTime;
 
 
 	public Long getId() {
@@ -171,28 +175,28 @@ public class SysUser extends Model<SysUser> {
 		this.state = state;
 	}
 
-	public String getDeptid() {
-		return deptid;
+	public String getDeptId() {
+		return deptId;
 	}
 
-	public void setDeptid(String deptid) {
-		this.deptid = deptid;
+	public void setDeptId(String deptId) {
+		this.deptId = deptId;
 	}
 
-	public Date getCreatetime() {
-		return createtime;
+	public Date getCreateTime() {
+		return createTime;
 	}
 
-	public void setCreatetime(Date createtime) {
-		this.createtime = createtime;
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 
-	public Date getLeavetime() {
-		return leavetime;
+	public Date getLeaveTime() {
+		return leaveTime;
 	}
 
-	public void setLeavetime(Date leavetime) {
-		this.leavetime = leavetime;
+	public void setLeaveTime(Date leaveTime) {
+		this.leaveTime = leaveTime;
 	}
 
 	public String getUserType() {
@@ -211,12 +215,12 @@ public class SysUser extends Model<SysUser> {
 		this.sortid = sortid;
 	}
 
-	public Date getUpdatetime() {
-		return updatetime;
+	public Date getUpdateTime() {
+		return updateTime;
 	}
 
-	public void setUpdatetime(Date updatetime) {
-		this.updatetime = updatetime;
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 
 	@Override
@@ -237,12 +241,12 @@ public class SysUser extends Model<SysUser> {
 			", phoneNum2=" + phoneNum2 +
 			", address=" + address +
 			", state=" + state +
-			", deptid=" + deptid +
-			", createtime=" + createtime +
-			", leavetime=" + leavetime +
+			", deptId=" + deptId +
+			", createTime=" + createTime +
+			", leaveTime=" + leaveTime +
 			", userType=" + userType +
 			", sortid=" + sortid +
-			", updatetime=" + updatetime +
+			", updateTime=" + updateTime +
 			"}";
 	}
 }

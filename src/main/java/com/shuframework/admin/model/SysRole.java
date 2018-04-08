@@ -5,17 +5,18 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
 
 /**
  * <p>
- * 系统表_角色
+ * 系统管理_角色
  * </p>
  *
  * @author shuheng
- * @since 2017-10-13
+ * @since 2018-03-31
  */
 @TableName("sys_role")
 public class SysRole extends Model<SysRole> {
@@ -39,15 +40,17 @@ public class SysRole extends Model<SysRole> {
     /**
      * 状态，0不可用 1可用
      */
-	private String enable;
+	private Integer enable;
     /**
      * 创建时间
      */
-	private Date createtime;
+	@TableField("create_time")
+	private Date createTime;
     /**
      * 更新时间
      */
-	private Date updatetime;
+	@TableField("update_time")
+	private Date updateTime;
 
 
 	public Long getId() {
@@ -82,28 +85,28 @@ public class SysRole extends Model<SysRole> {
 		this.type = type;
 	}
 
-	public String getEnable() {
+	public Integer getEnable() {
 		return enable;
 	}
 
-	public void setEnable(String enable) {
+	public void setEnable(Integer enable) {
 		this.enable = enable;
 	}
 
-	public Date getCreatetime() {
-		return createtime;
+	public Date getCreateTime() {
+		return createTime;
 	}
 
-	public void setCreatetime(Date createtime) {
-		this.createtime = createtime;
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 
-	public Date getUpdatetime() {
-		return updatetime;
+	public Date getUpdateTime() {
+		return updateTime;
 	}
 
-	public void setUpdatetime(Date updatetime) {
-		this.updatetime = updatetime;
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 
 	@Override
@@ -119,8 +122,8 @@ public class SysRole extends Model<SysRole> {
 			", description=" + description +
 			", type=" + type +
 			", enable=" + enable +
-			", createtime=" + createtime +
-			", updatetime=" + updatetime +
+			", createTime=" + createTime +
+			", updateTime=" + updateTime +
 			"}";
 	}
 }

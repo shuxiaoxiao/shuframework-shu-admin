@@ -12,11 +12,11 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 系统表_操作日志表
+ * 系统管理_操作日志表
  * </p>
  *
  * @author shuheng
- * @since 2017-10-13
+ * @since 2018-03-31
  */
 @TableName("sys_log")
 public class SysLog extends Model<SysLog> {
@@ -47,11 +47,13 @@ public class SysLog extends Model<SysLog> {
     /**
      * 创建时间
      */
-	private Date createtime;
+	@TableField("create_time")
+	private Date createTime;
     /**
      * 更新时间
      */
-	private Date updatetime;
+	@TableField("update_time")
+	private Date updateTime;
 
 
 	public Long getId() {
@@ -94,20 +96,20 @@ public class SysLog extends Model<SysLog> {
 		this.clientIp = clientIp;
 	}
 
-	public Date getCreatetime() {
-		return createtime;
+	public Date getCreateTime() {
+		return createTime;
 	}
 
-	public void setCreatetime(Date createtime) {
-		this.createtime = createtime;
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 
-	public Date getUpdatetime() {
-		return updatetime;
+	public Date getUpdateTime() {
+		return updateTime;
 	}
 
-	public void setUpdatetime(Date updatetime) {
-		this.updatetime = updatetime;
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 
 	@Override
@@ -123,8 +125,8 @@ public class SysLog extends Model<SysLog> {
 			", roleName=" + roleName +
 			", content=" + content +
 			", clientIp=" + clientIp +
-			", createtime=" + createtime +
-			", updatetime=" + updatetime +
+			", createTime=" + createTime +
+			", updateTime=" + updateTime +
 			"}";
 	}
 }

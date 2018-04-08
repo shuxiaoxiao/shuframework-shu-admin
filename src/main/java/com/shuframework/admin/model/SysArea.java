@@ -13,11 +13,11 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 地理行政区划
+ * 系统管理_地理行政区划
  * </p>
  *
  * @author shuheng
- * @since 2017-10-13
+ * @since 2018-03-31
  */
 @TableName("sys_area")
 public class SysArea extends Model<SysArea> {
@@ -26,10 +26,16 @@ public class SysArea extends Model<SysArea> {
 
 	@TableId(value="id", type= IdType.AUTO)
 	private Long id;
-	@TableField("area_id")
-	private String areaId;
+    /**
+     * 行政区号
+     */
+	@TableField("area_code")
+	private String areaCode;
+    /**
+     * 父id
+     */
 	@TableField("parent_id")
-	private String parentId;
+	private Long parentId;
     /**
      * 全称
      */
@@ -40,9 +46,14 @@ public class SysArea extends Model<SysArea> {
 	@TableField("short_name")
 	private String shortName;
     /**
-     * 关联序号
+     * 关联路径(用逗号分隔)
      */
-	private String seq;
+	private String path;
+    /**
+     * 关联路径名称
+     */
+	@TableField("path_name")
+	private String pathName;
     /**
      * 排序
      */
@@ -51,6 +62,16 @@ public class SysArea extends Model<SysArea> {
      * 层级
      */
 	private Integer levels;
+    /**
+     * 类型 1省 2自治区 3直辖市 4特别行政区 省会市 3地级市 4区 5县
+     */
+	@TableField("area_type")
+	private Integer areaType;
+    /**
+     * 区域类型 1华北 2华东 3东北 4中南 5西南 6西北 7港澳台
+     */
+	@TableField("region_type")
+	private Integer regionType;
     /**
      * 拼音
      */
@@ -77,7 +98,7 @@ public class SysArea extends Model<SysArea> {
     /**
      * 状态，0不可用 1可用
      */
-	private String enable;
+	private Integer enable;
     /**
      * 备注
      */
@@ -93,11 +114,13 @@ public class SysArea extends Model<SysArea> {
     /**
      * 创建时间
      */
-	private Date createtime;
+	@TableField("create_time")
+	private Date createTime;
     /**
      * 更新时间
      */
-	private Date updatetime;
+	@TableField("update_time")
+	private Date updateTime;
 
 
 	public Long getId() {
@@ -108,19 +131,19 @@ public class SysArea extends Model<SysArea> {
 		this.id = id;
 	}
 
-	public String getAreaId() {
-		return areaId;
+	public String getAreaCode() {
+		return areaCode;
 	}
 
-	public void setAreaId(String areaId) {
-		this.areaId = areaId;
+	public void setAreaCode(String areaCode) {
+		this.areaCode = areaCode;
 	}
 
-	public String getParentId() {
+	public Long getParentId() {
 		return parentId;
 	}
 
-	public void setParentId(String parentId) {
+	public void setParentId(Long parentId) {
 		this.parentId = parentId;
 	}
 
@@ -140,12 +163,20 @@ public class SysArea extends Model<SysArea> {
 		this.shortName = shortName;
 	}
 
-	public String getSeq() {
-		return seq;
+	public String getPath() {
+		return path;
 	}
 
-	public void setSeq(String seq) {
-		this.seq = seq;
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	public String getPathName() {
+		return pathName;
+	}
+
+	public void setPathName(String pathName) {
+		this.pathName = pathName;
 	}
 
 	public Integer getSortid() {
@@ -162,6 +193,22 @@ public class SysArea extends Model<SysArea> {
 
 	public void setLevels(Integer levels) {
 		this.levels = levels;
+	}
+
+	public Integer getAreaType() {
+		return areaType;
+	}
+
+	public void setAreaType(Integer areaType) {
+		this.areaType = areaType;
+	}
+
+	public Integer getRegionType() {
+		return regionType;
+	}
+
+	public void setRegionType(Integer regionType) {
+		this.regionType = regionType;
 	}
 
 	public String getPinyin() {
@@ -204,11 +251,11 @@ public class SysArea extends Model<SysArea> {
 		this.zipCode = zipCode;
 	}
 
-	public String getEnable() {
+	public Integer getEnable() {
 		return enable;
 	}
 
-	public void setEnable(String enable) {
+	public void setEnable(Integer enable) {
 		this.enable = enable;
 	}
 
@@ -236,20 +283,20 @@ public class SysArea extends Model<SysArea> {
 		this.latitude = latitude;
 	}
 
-	public Date getCreatetime() {
-		return createtime;
+	public Date getCreateTime() {
+		return createTime;
 	}
 
-	public void setCreatetime(Date createtime) {
-		this.createtime = createtime;
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 
-	public Date getUpdatetime() {
-		return updatetime;
+	public Date getUpdateTime() {
+		return updateTime;
 	}
 
-	public void setUpdatetime(Date updatetime) {
-		this.updatetime = updatetime;
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 
 	@Override
@@ -261,13 +308,16 @@ public class SysArea extends Model<SysArea> {
 	public String toString() {
 		return "SysArea{" +
 			"id=" + id +
-			", areaId=" + areaId +
+			", areaCode=" + areaCode +
 			", parentId=" + parentId +
 			", name=" + name +
 			", shortName=" + shortName +
-			", seq=" + seq +
+			", path=" + path +
+			", pathName=" + pathName +
 			", sortid=" + sortid +
 			", levels=" + levels +
+			", areaType=" + areaType +
+			", regionType=" + regionType +
 			", pinyin=" + pinyin +
 			", jianpin=" + jianpin +
 			", firstChar=" + firstChar +
@@ -277,8 +327,8 @@ public class SysArea extends Model<SysArea> {
 			", remark=" + remark +
 			", longitude=" + longitude +
 			", latitude=" + latitude +
-			", createtime=" + createtime +
-			", updatetime=" + updatetime +
+			", createTime=" + createTime +
+			", updateTime=" + updateTime +
 			"}";
 	}
 }

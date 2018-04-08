@@ -5,17 +5,18 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
 
 /**
  * <p>
- * 角色菜单_中间表
+ * 系统管理_角色菜单中间表
  * </p>
  *
  * @author shuheng
- * @since 2017-10-13
+ * @since 2018-03-31
  */
 @TableName("sys_role_menu")
 public class SysRoleMenu extends Model<SysRoleMenu> {
@@ -30,19 +31,27 @@ public class SysRoleMenu extends Model<SysRoleMenu> {
     /**
      * 角色表id
      */
+	@TableField("role_id")
 	private Long roleId;
     /**
      * 菜单表id
      */
+	@TableField("menu_id")
 	private Long menuId;
+    /**
+     * 状态，0不可用 1可用
+     */
+	private Integer enable;
     /**
      * 创建时间
      */
-	private Date createtime;
+	@TableField("create_time")
+	private Date createTime;
     /**
      * 更新时间
      */
-	private Date updatetime;
+	@TableField("update_time")
+	private Date updateTime;
 
 
 	public Long getId() {
@@ -69,20 +78,28 @@ public class SysRoleMenu extends Model<SysRoleMenu> {
 		this.menuId = menuId;
 	}
 
-	public Date getCreatetime() {
-		return createtime;
+	public Integer getEnable() {
+		return enable;
 	}
 
-	public void setCreatetime(Date createtime) {
-		this.createtime = createtime;
+	public void setEnable(Integer enable) {
+		this.enable = enable;
 	}
 
-	public Date getUpdatetime() {
-		return updatetime;
+	public Date getCreateTime() {
+		return createTime;
 	}
 
-	public void setUpdatetime(Date updatetime) {
-		this.updatetime = updatetime;
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 
 	@Override
@@ -96,8 +113,9 @@ public class SysRoleMenu extends Model<SysRoleMenu> {
 			"id=" + id +
 			", roleId=" + roleId +
 			", menuId=" + menuId +
-			", createtime=" + createtime +
-			", updatetime=" + updatetime +
+			", enable=" + enable +
+			", createTime=" + createTime +
+			", updateTime=" + updateTime +
 			"}";
 	}
 }

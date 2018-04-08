@@ -5,17 +5,18 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
 
 /**
  * <p>
- * 系统表_部门
+ * 系统管理_部门
  * </p>
  *
  * @author shuheng
- * @since 2017-10-13
+ * @since 2018-03-31
  */
 @TableName("sys_dept")
 public class SysDept extends Model<SysDept> {
@@ -27,7 +28,8 @@ public class SysDept extends Model<SysDept> {
     /**
      * 部门id
      */
-	private String deptid;
+	@TableField("dept_code")
+	private String deptCode;
     /**
      * 部门名称
      */
@@ -35,39 +37,42 @@ public class SysDept extends Model<SysDept> {
     /**
      * 父id
      */
-	private String pid;
+	@TableField("parent_id")
+	private Long parentId;
     /**
      * 层级
      */
 	private String levels;
     /**
-     * 创建时间
+     * 关联路径(用逗号分隔)
      */
-	private Date createtime;
-    /**
-     * 更新时间
-     */
-	private Date updatetime;
+	private String path;
     /**
      * 描述
      */
 	private String description;
     /**
+     * 状态, 0不可以 1可用
+     */
+	private Integer enable;
+    /**
      * 排序号
      */
 	private Integer sortid;
     /**
-     * 节点状态，'open' 或 'closed'
-     */
-	private String state;
-    /**
-     * 状态, 0不可以 1可用
-     */
-	private String enable;
-    /**
      * 部门类型
      */
-	private String type;
+	private Integer type;
+    /**
+     * 创建时间
+     */
+	@TableField("create_time")
+	private Date createTime;
+    /**
+     * 更新时间
+     */
+	@TableField("update_time")
+	private Date updateTime;
 
 
 	public Long getId() {
@@ -78,12 +83,12 @@ public class SysDept extends Model<SysDept> {
 		this.id = id;
 	}
 
-	public String getDeptid() {
-		return deptid;
+	public String getDeptCode() {
+		return deptCode;
 	}
 
-	public void setDeptid(String deptid) {
-		this.deptid = deptid;
+	public void setDeptCode(String deptCode) {
+		this.deptCode = deptCode;
 	}
 
 	public String getName() {
@@ -94,12 +99,12 @@ public class SysDept extends Model<SysDept> {
 		this.name = name;
 	}
 
-	public String getPid() {
-		return pid;
+	public Long getParentId() {
+		return parentId;
 	}
 
-	public void setPid(String pid) {
-		this.pid = pid;
+	public void setParentId(Long parentId) {
+		this.parentId = parentId;
 	}
 
 	public String getLevels() {
@@ -110,20 +115,12 @@ public class SysDept extends Model<SysDept> {
 		this.levels = levels;
 	}
 
-	public Date getCreatetime() {
-		return createtime;
+	public String getPath() {
+		return path;
 	}
 
-	public void setCreatetime(Date createtime) {
-		this.createtime = createtime;
-	}
-
-	public Date getUpdatetime() {
-		return updatetime;
-	}
-
-	public void setUpdatetime(Date updatetime) {
-		this.updatetime = updatetime;
+	public void setPath(String path) {
+		this.path = path;
 	}
 
 	public String getDescription() {
@@ -134,6 +131,14 @@ public class SysDept extends Model<SysDept> {
 		this.description = description;
 	}
 
+	public Integer getEnable() {
+		return enable;
+	}
+
+	public void setEnable(Integer enable) {
+		this.enable = enable;
+	}
+
 	public Integer getSortid() {
 		return sortid;
 	}
@@ -142,28 +147,28 @@ public class SysDept extends Model<SysDept> {
 		this.sortid = sortid;
 	}
 
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public String getEnable() {
-		return enable;
-	}
-
-	public void setEnable(String enable) {
-		this.enable = enable;
-	}
-
-	public String getType() {
+	public Integer getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(Integer type) {
 		this.type = type;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 
 	@Override
@@ -175,17 +180,17 @@ public class SysDept extends Model<SysDept> {
 	public String toString() {
 		return "SysDept{" +
 			"id=" + id +
-			", deptid=" + deptid +
+			", deptCode=" + deptCode +
 			", name=" + name +
-			", pid=" + pid +
+			", parentId=" + parentId +
 			", levels=" + levels +
-			", createtime=" + createtime +
-			", updatetime=" + updatetime +
+			", path=" + path +
 			", description=" + description +
-			", sortid=" + sortid +
-			", state=" + state +
 			", enable=" + enable +
+			", sortid=" + sortid +
 			", type=" + type +
+			", createTime=" + createTime +
+			", updateTime=" + updateTime +
 			"}";
 	}
 }

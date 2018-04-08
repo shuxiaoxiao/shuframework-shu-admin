@@ -9,8 +9,8 @@
 		<result column="description" property="description" />
 		<result column="type" property="type" />
 		<result column="enable" property="enable" />
-		<result column="createtime" property="createtime" />
-		<result column="updatetime" property="updatetime" />
+		<result column="create_time" property="createTime" />
+		<result column="update_time" property="updateTime" />
 	</resultMap>
 
 </mapper>

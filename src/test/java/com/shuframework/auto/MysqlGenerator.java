@@ -2,8 +2,6 @@ package com.shuframework.auto;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
 import org.springframework.core.io.ClassPathResource;
@@ -11,9 +9,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 
 import com.baomidou.mybatisplus.generator.AutoGenerator;
-import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
-import com.baomidou.mybatisplus.generator.config.FileOutConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
@@ -93,7 +89,7 @@ public class MysqlGenerator {
 //		strategy.setTablePrefix(new String[] { "bmd_", "mp_" });// 此处可以修改为您的表前缀
 		strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
 		strategy.setInclude(new String[] {"sys_area","sys_dept","sys_dictionary","sys_log","sys_menu","sys_role",
-				"sys_role_menu","sys_user","sys_user_menu","sys_user_role"}); // 需要生成的表
+				"sys_role_menu","sys_user","sys_user_role"}); // 需要生成的表
 		// strategy.setExclude(new String[]{"test"}); // 排除生成的表
 		// 自定义实体父类
 		// strategy.setSuperEntityClass("com.baomidou.demo.TestEntity");

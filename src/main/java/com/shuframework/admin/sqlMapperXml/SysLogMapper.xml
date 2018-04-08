@@ -9,8 +9,8 @@
 		<result column="role_name" property="roleName" />
 		<result column="content" property="content" />
 		<result column="client_ip" property="clientIp" />
-		<result column="createtime" property="createtime" />
-		<result column="updatetime" property="updatetime" />
+		<result column="create_time" property="createTime" />
+		<result column="update_time" property="updateTime" />
 	</resultMap>
 
 </mapper>
